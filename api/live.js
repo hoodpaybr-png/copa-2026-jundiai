@@ -43,7 +43,7 @@ async function apiGet(path, key) {
   });
   if (!res.ok) throw new Error(`API-Football error ${res.status} on ${path}`);
   const json = await res.json();
-  return json.response;
+  return { response: json.response, errors: json.errors, results: json.results };
 }
 
 const ISO_BY_NAME = {
@@ -116,23 +116,29 @@ module.exports = async (req, res) => {
   }
 
   const type = (req.query?.type || "all").toString();
-  const out = { configured: true, liveWindow: live };
+  const out = { configured: true, liveWindow: live, debug: {} };
 
   try {
     if (type === "all" || type === "fixtures") {
-      out.fixtures = await apiGet(`/fixtures?league=${LEAGUE_ID}&season=${SEASON}`, key);
+      const r = await apiGet(`/fixtures?league=${LEAGUE_ID}&season=${SEASON}`, key);
+      out.fixtures = r.response || [];
+      if (r.errors && Object.keys(r.errors).length) out.debug.fixtures_errors = r.errors;
+      out.debug.fixtures_count = r.results;
     }
     if (type === "all" || type === "standings") {
-      const standingsRaw = await apiGet(`/standings?league=${LEAGUE_ID}&season=${SEASON}`, key);
-      out.standings = mapStandings(standingsRaw?.[0]?.league?.standings?.[0] ? standingsRaw[0].league.standings.flat() : standingsRaw?.[0]?.league?.standings);
-      // Some API responses nest groups one level deeper; normalize defensively.
-      if (Object.keys(out.standings || {}).length === 0 && standingsRaw?.[0]?.league?.standings) {
-        out.standings = mapStandings(standingsRaw[0].league.standings);
-      }
+      const r = await apiGet(`/standings?league=${LEAGUE_ID}&season=${SEASON}`, key);
+      const standingsRaw = r.response;
+      if (r.errors && Object.keys(r.errors).length) out.debug.standings_errors = r.errors;
+      out.standings = mapStandings(standingsRaw?.[0]?.league?.standings);
     }
     if (type === "all" || type === "topscorers") {
-      const topRaw = await apiGet(`/players/topscorers?league=${LEAGUE_ID}&season=${SEASON}`, key);
-      out.topscorers = mapTopscorers(topRaw);
+      const r = await apiGet(`/players/topscorers?league=${LEAGUE_ID}&season=${SEASON}`, key);
+      if (r.errors && Object.keys(r.errors).length) out.debug.topscorers_errors = r.errors;
+      out.topscorers = mapTopscorers(r.response);
+    }
+    if (type === "all" || type === "status") {
+      const r = await apiGet(`/status`, key);
+      out.debug.account = r.response;
     }
     res.status(200).json(out);
   } catch (err) {
