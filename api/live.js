@@ -146,11 +146,11 @@ module.exports = async (req, res) => {
   const cache = live
     ? "s-maxage=30, stale-while-revalidate=60"
     : "s-maxage=600, stale-while-revalidate=1200";
-  res.setHeader("Cache-Control", cache);
   res.setHeader("Content-Type", "application/json; charset=utf-8");
 
   const token = process.env.FOOTBALL_DATA_TOKEN;
   if (!token) {
+    res.setHeader("Cache-Control", cache);
     res.status(200).json({ configured: false });
     return;
   }
@@ -174,8 +174,13 @@ module.exports = async (req, res) => {
       if (r.error) out.debug.topscorers_error = r.error;
       out.topscorers = mapTopscorers(r.data?.scorers);
     }
+    // Só aplica cache se NÃO houve nenhum erro - evita guardar erros temporários
+    // (ex: rate limit) e repeti-los por minutos.
+    const hasError = Object.keys(out.debug).length > 0;
+    res.setHeader("Cache-Control", hasError ? "s-maxage=5, stale-while-revalidate=10" : cache);
     res.status(200).json(out);
   } catch (err) {
+    res.setHeader("Cache-Control", "s-maxage=5, stale-while-revalidate=10");
     res.status(200).json({ configured: true, error: String(err) });
   }
 };
