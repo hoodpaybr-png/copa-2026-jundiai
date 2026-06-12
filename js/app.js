@@ -131,6 +131,8 @@ function renderHomeLists(){
 function renderHeroTicket(hoje, proximos){
   const el = document.getElementById('hero-ticket');
   const now = new Date();
+  // "próximo jogo" = primeiro jogo (hoje ou futuro) que ainda não terminou
+  // (considera ~2h de duração média por partida)
   const all = [...hoje, ...proximos].sort((a,b)=>matchDate(a)-matchDate(b));
   const next = all.find(m => (matchDate(m).getTime() + 2*60*60*1000) > now.getTime()) || all[0];
   if(!next){ el.innerHTML = ''; return; }
@@ -247,6 +249,91 @@ function renderTopscorers(){
   </div>`;
 }
 
+/* ---------- Calendário (.ics) ---------- */
+function icsEscape(text){
+  return String(text).replace(/\\/g,'\\\\').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function icsFold(line){
+  const out = [];
+  while(new TextEncoder().encode(line).length > 75){
+    out.push(line.slice(0,75));
+    line = ' ' + line.slice(75);
+  }
+  out.push(line);
+  return out.join('\r\n');
+}
+function icsDateUTC(dateStr, timeStr, addHours){
+  const [y,mo,d] = dateStr.split('-').map(Number);
+  const [hh,mm] = timeStr.split(':').map(Number);
+  // horário local é America/Sao_Paulo (UTC-3, fixo, sem horário de verão)
+  const dt = new Date(Date.UTC(y, mo-1, d, hh+3+(addHours||0), mm, 0));
+  return dt.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+}
+function buildICS(matches, calName){
+  const lines = [];
+  lines.push('BEGIN:VCALENDAR');
+  lines.push('VERSION:2.0');
+  lines.push('PRODID:-//Hood//CopaDoMundo2026//PT-BR');
+  lines.push('CALSCALE:GREGORIAN');
+  lines.push('METHOD:PUBLISH');
+  lines.push(icsFold('X-WR-CALNAME:'+icsEscape(calName)));
+  lines.push(icsFold('X-WR-CALDESC:'+icsEscape('Copa do Mundo 2026 - jogos, estádios e onde assistir (horário de Brasília)')));
+  lines.push('X-WR-TIMEZONE:America/Sao_Paulo');
+  const stamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  matches.forEach(m=>{
+    const summary = m.group
+      ? `${m.flag1} ${m.team1} x ${m.team2} ${m.flag2} (Grupo ${m.group})`
+      : `${m.flag1} ${m.team1} x ${m.team2} ${m.flag2} (${m.stage})`;
+    const descParts = [
+      `Jogo ${m.num} da Copa do Mundo 2026`,
+      `Fase: ${m.stage}`,
+      `Estádio: ${m.stadium_real || m.stadium} (${m.stadium})`,
+      `Cidade: ${m.city}`,
+      `Onde assistir no Brasil: ${m.broadcast}`,
+      'Horário em America/Sao_Paulo (Jundiaí/SP).',
+    ];
+    if(!m.group){
+      descParts.push('Atenção: confronto definido pela classificação da fase de grupos - times podem mudar.');
+    }
+    const description = descParts.map(icsEscape).join('\\n');
+    const location = icsEscape(`${m.stadium_real || m.stadium}, ${m.city}`);
+    lines.push('BEGIN:VEVENT');
+    lines.push(`UID:copa2026-jogo${m.num}-jundiai@hoodpay.com.br`);
+    lines.push('DTSTAMP:'+stamp);
+    lines.push('DTSTART:'+icsDateUTC(m.date, m.time, 0));
+    lines.push('DTEND:'+icsDateUTC(m.date, m.time, 2));
+    lines.push(icsFold('SUMMARY:'+icsEscape(summary)));
+    lines.push(icsFold('DESCRIPTION:'+description));
+    lines.push(icsFold('LOCATION:'+location));
+    lines.push('CATEGORIES:Copa do Mundo 2026');
+    lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n')+'\r\n';
+}
+function downloadICS(matches, filename, calName){
+  const ics = buildICS(matches, calName);
+  const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+function setupCalendarButtons(){
+  const calName = 'Copa do Mundo - 2026 / Jundiaí/SP';
+  document.getElementById('btn-cal-all')?.addEventListener('click', ()=>{
+    downloadICS(DATA.matches, 'CopaDoMundo2026_Jundiai_TodosOsJogos.ics', calName);
+  });
+  document.getElementById('btn-cal-brasil')?.addEventListener('click', ()=>{
+    const brasil = DATA.matches.filter(m=>m.team1==='Brasil'||m.team2==='Brasil');
+    downloadICS(brasil, 'CopaDoMundo2026_Jundiai_Brasil.ics', calName);
+  });
+}
+
 /* ---------- Tabs ---------- */
 function setupTabs(){
   document.querySelectorAll('.tab').forEach(tab=>{
@@ -292,6 +379,7 @@ async function loadLiveData(){
   } else if(LIVE.configured===true){
     status.textContent = `Dados em tempo real atualizados em ${new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})} (horário de Brasília).`;
   }
+  // re-render with whatever live data we have
   renderHomeLists();
   renderTabela();
   renderGroups();
@@ -303,6 +391,7 @@ async function init(){
   setupTabs();
   startClock();
   renderChannels();
+  setupCalendarButtons();
   try{
     const res = await fetch('/data/matches.json');
     DATA = await res.json();
