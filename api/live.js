@@ -1,31 +1,31 @@
 /**
  * /api/live
- * Busca dados em tempo real da Copa do Mundo 2026 via API-Football (api-sports.io).
+ * Busca dados em tempo real da Copa do Mundo 2026 via football-data.org (API v4).
+ *
+ * Por que football-data.org?
+ *  - O plano GRATUITO inclui a competição "FIFA World Cup" (code "WC") sem
+ *    restrição de temporada (diferente da API-Football, cujo plano free só
+ *    libera temporadas 2022-2024).
+ *  - Limite gratuito: 10 requisições/minuto - dá folga para atualizar a
+ *    cada 30-60s durante os jogos.
  *
  * Configuração necessária na Vercel (Project Settings > Environment Variables):
- *   API_FOOTBALL_KEY = <sua chave da api-sports.io>
+ *   FOOTBALL_DATA_TOKEN = <seu token gratuito de football-data.org>
  *
- * Sem a chave configurada, retorna { configured: false } e o site usa apenas
+ * Sem o token configurado, retorna { configured: false } e o site usa apenas
  * os dados estáticos (tabela, grupos, onde assistir).
  *
- * CACHE DINÂMICO (plano gratuito = 100 req/dia):
- *  - Fora de horário de jogo: cache de 30 min (s-maxage=1800)
- *  - Durante uma partida (10 min antes do horário até 150 min depois): cache de 5 min
- *
- * Para se aproximar do "tempo real" tipo 365Scores (atualização a cada 30-60s),
- * é necessário um plano pago da API-Football (ex: plano "Ultra", ~7.500 req/dia).
- * Nesse caso, basta reduzir os valores de s-maxage abaixo (ex: 60 / 300).
- *
- * League ID 1 = FIFA World Cup (API-Football). Season = 2026.
+ * CACHE DINÂMICO:
+ *  - Fora de horário de jogo: cache de 10 min (s-maxage=600)
+ *  - Durante uma partida (10 min antes do horário até 150 min depois):
+ *    cache de 30s (s-maxage=30) - bem perto de "tempo real"
  */
 
-const BASE_URL = "https://v3.football.api-sports.io";
-const LEAGUE_ID = 1;
-const SEASON = 2026;
+const BASE_URL = "https://api.football-data.org/v4";
+const COMPETITION = "WC";
 
-// Janela de "jogo ao vivo": do início até 150 min depois (tempo + intervalo + acréscimos)
 const LIVE_WINDOW_MS = 150 * 60 * 1000;
-const PRE_WINDOW_MS = 10 * 60 * 1000; // considera "ao vivo" 10min antes do horário oficial
+const PRE_WINDOW_MS = 10 * 60 * 1000;
 
 const matchesData = require("../data/matches.json");
 
@@ -37,27 +37,29 @@ function isLiveWindowNow() {
   });
 }
 
-async function apiGet(path, key) {
+async function apiGet(path, token) {
   const res = await fetch(`${BASE_URL}${path}`, {
-    headers: { "x-apisports-key": key },
+    headers: { "X-Auth-Token": token },
   });
-  if (!res.ok) throw new Error(`API-Football error ${res.status} on ${path}`);
-  const json = await res.json();
-  return { response: json.response, errors: json.errors, results: json.results };
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    return { error: json.message || `HTTP ${res.status}`, status: res.status };
+  }
+  return { data: json };
 }
 
 const ISO_BY_NAME = {
   "mexico":"mx","south africa":"za","south korea":"kr","korea republic":"kr","czech republic":"cz","czechia":"cz",
   "canada":"ca","qatar":"qa","switzerland":"ch","bosnia and herzegovina":"ba","bosnia & herzegovina":"ba",
   "brazil":"br","morocco":"ma","haiti":"ht","scotland":"gb-sct",
-  "usa":"us","united states":"us","paraguay":"py","australia":"au","turkey":"tr","türkiye":"tr",
+  "usa":"us","united states":"us","united states of america":"us","paraguay":"py","australia":"au","turkey":"tr","türkiye":"tr",
   "germany":"de","curacao":"cw","curaçao":"cw","ivory coast":"ci","côte d'ivoire":"ci","cote d'ivoire":"ci","ecuador":"ec",
   "netherlands":"nl","japan":"jp","tunisia":"tn","sweden":"se",
-  "belgium":"be","egypt":"eg","iran":"ir","new zealand":"nz",
-  "spain":"es","cape verde":"cv","saudi arabia":"sa","uruguay":"uy",
+  "belgium":"be","egypt":"eg","iran":"ir","ir iran":"ir","new zealand":"nz",
+  "spain":"es","cape verde":"cv","cabo verde":"cv","saudi arabia":"sa","uruguay":"uy",
   "france":"fr","senegal":"sn","norway":"no","iraq":"iq",
   "argentina":"ar","algeria":"dz","austria":"at","jordan":"jo",
-  "portugal":"pt","uzbekistan":"uz","colombia":"co","dr congo":"cd","congo dr":"cd",
+  "portugal":"pt","uzbekistan":"uz","colombia":"co","dr congo":"cd","congo dr":"cd","democratic republic of the congo":"cd",
   "england":"gb-eng","croatia":"hr","ghana":"gh","panama":"pa",
 };
 
@@ -65,52 +67,90 @@ function isoFor(name) {
   return ISO_BY_NAME[(name || "").toLowerCase().trim()] || "";
 }
 
-function mapStandings(raw) {
-  // raw: array of arrays (one per group), each item has group "Group A", team{name}, etc.
+// Normaliza status do football-data.org para os códigos curtos que o front já espera
+function mapStatus(status) {
+  switch (status) {
+    case "IN_PLAY":
+    case "PAUSED":
+      return "LIVE";
+    case "FINISHED":
+    case "AWARDED":
+      return "FT";
+    case "POSTPONED":
+    case "SUSPENDED":
+    case "CANCELLED":
+      return "PST";
+    case "SCHEDULED":
+    case "TIMED":
+    default:
+      return "NS";
+  }
+}
+
+function mapFixtures(matches) {
+  if (!Array.isArray(matches)) return [];
+  return matches.map((m) => {
+    const ft = m.score?.fullTime || {};
+    return {
+      teams: {
+        home: { name: m.homeTeam?.name },
+        away: { name: m.awayTeam?.name },
+      },
+      goals: {
+        home: ft.home ?? null,
+        away: ft.away ?? null,
+      },
+      fixture: {
+        status: { short: mapStatus(m.status) },
+        date: m.utcDate,
+      },
+    };
+  });
+}
+
+function mapStandings(standingsArr) {
   const out = {};
-  if (!Array.isArray(raw)) return out;
-  for (const group of raw) {
-    if (!Array.isArray(group) || !group.length) continue;
-    const groupName = group[0].group || "";
-    const letter = groupName.trim().slice(-1).toUpperCase();
-    out[letter] = group.map((t) => ({
+  if (!Array.isArray(standingsArr)) return out;
+  for (const grp of standingsArr) {
+    const match = (grp.group || "").match(/([A-L])\s*$/i);
+    const letter = match ? match[1].toUpperCase() : "";
+    if (!letter) continue;
+    out[letter] = (grp.table || []).map((t) => ({
       team: t.team?.name,
       flagCode: isoFor(t.team?.name),
-      p: t.all?.played ?? "-",
-      v: t.all?.win ?? "-",
-      e: t.all?.draw ?? "-",
-      d: t.all?.lose ?? "-",
-      gp: t.all?.goals?.for ?? "-",
-      gc: t.all?.goals?.against ?? "-",
-      sg: t.goalsDiff ?? "-",
+      p: t.playedGames ?? "-",
+      v: t.won ?? "-",
+      e: t.draw ?? "-",
+      d: t.lost ?? "-",
+      gp: t.goalsFor ?? "-",
+      gc: t.goalsAgainst ?? "-",
+      sg: t.goalDifference ?? "-",
       pts: t.points ?? "-",
     }));
   }
   return out;
 }
 
-function mapTopscorers(raw) {
-  if (!Array.isArray(raw)) return [];
-  return raw.slice(0, 15).map((p) => ({
-    name: p.player?.name,
-    team: p.statistics?.[0]?.team?.name,
-    goals: p.statistics?.[0]?.goals?.total ?? 0,
-    assists: p.statistics?.[0]?.goals?.assists ?? 0,
+function mapTopscorers(scorers) {
+  if (!Array.isArray(scorers)) return [];
+  return scorers.slice(0, 15).map((s) => ({
+    name: s.player?.name,
+    team: s.team?.name,
+    goals: s.goals ?? 0,
+    assists: s.assists ?? 0,
   }));
 }
 
 module.exports = async (req, res) => {
   const live = isLiveWindowNow();
-  // Fora de jogo: cache de 30 min. Durante janela de jogo: cache de 5 min
-  // (mantém o consumo dentro do limite gratuito de 100 req/dia da API-Football).
   const cache = live
-    ? "s-maxage=300, stale-while-revalidate=600"
-    : "s-maxage=1800, stale-while-revalidate=3600";
+    ? "s-maxage=30, stale-while-revalidate=60"
+    : "s-maxage=600, stale-while-revalidate=1200";
   res.setHeader("Cache-Control", cache);
   res.setHeader("Content-Type", "application/json; charset=utf-8");
 
-  const key = process.env.API_FOOTBALL_KEY;
-  if (!key) {
+  const token = process.env.FOOTBALL_DATA_TOKEN;
+  if (!token) {
     res.status(200).json({ configured: false });
     return;
   }
@@ -120,25 +160,19 @@ module.exports = async (req, res) => {
 
   try {
     if (type === "all" || type === "fixtures") {
-      const r = await apiGet(`/fixtures?league=${LEAGUE_ID}&season=${SEASON}`, key);
-      out.fixtures = r.response || [];
-      if (r.errors && Object.keys(r.errors).length) out.debug.fixtures_errors = r.errors;
-      out.debug.fixtures_count = r.results;
+      const r = await apiGet(`/competitions/${COMPETITION}/matches`, token);
+      if (r.error) out.debug.fixtures_error = r.error;
+      out.fixtures = mapFixtures(r.data?.matches);
     }
     if (type === "all" || type === "standings") {
-      const r = await apiGet(`/standings?league=${LEAGUE_ID}&season=${SEASON}`, key);
-      const standingsRaw = r.response;
-      if (r.errors && Object.keys(r.errors).length) out.debug.standings_errors = r.errors;
-      out.standings = mapStandings(standingsRaw?.[0]?.league?.standings);
+      const r = await apiGet(`/competitions/${COMPETITION}/standings`, token);
+      if (r.error) out.debug.standings_error = r.error;
+      out.standings = mapStandings(r.data?.standings);
     }
     if (type === "all" || type === "topscorers") {
-      const r = await apiGet(`/players/topscorers?league=${LEAGUE_ID}&season=${SEASON}`, key);
-      if (r.errors && Object.keys(r.errors).length) out.debug.topscorers_errors = r.errors;
-      out.topscorers = mapTopscorers(r.response);
-    }
-    if (type === "all" || type === "status") {
-      const r = await apiGet(`/status`, key);
-      out.debug.account = r.response;
+      const r = await apiGet(`/competitions/${COMPETITION}/scorers?limit=15`, token);
+      if (r.error) out.debug.topscorers_error = r.error;
+      out.topscorers = mapTopscorers(r.data?.scorers);
     }
     res.status(200).json(out);
   } catch (err) {
