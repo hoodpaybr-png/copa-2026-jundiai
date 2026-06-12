@@ -8,9 +8,13 @@
  * Sem a chave configurada, retorna { configured: false } e o site usa apenas
  * os dados estáticos (tabela, grupos, onde assistir).
  *
- * Plano gratuito da API-Football: 100 requisições/dia. Este endpoint usa
- * cache de borda (Cache-Control) de 30 min, então o consumo real fica bem
- * abaixo do limite mesmo com muitos visitantes.
+ * CACHE DINÂMICO (plano gratuito = 100 req/dia):
+ *  - Fora de horário de jogo: cache de 30 min (s-maxage=1800)
+ *  - Durante uma partida (10 min antes do horário até 150 min depois): cache de 5 min
+ *
+ * Para se aproximar do "tempo real" tipo 365Scores (atualização a cada 30-60s),
+ * é necessário um plano pago da API-Football (ex: plano "Ultra", ~7.500 req/dia).
+ * Nesse caso, basta reduzir os valores de s-maxage abaixo (ex: 60 / 300).
  *
  * League ID 1 = FIFA World Cup (API-Football). Season = 2026.
  */
@@ -19,6 +23,20 @@ const BASE_URL = "https://v3.football.api-sports.io";
 const LEAGUE_ID = 1;
 const SEASON = 2026;
 
+// Janela de "jogo ao vivo": do início até 150 min depois (tempo + intervalo + acréscimos)
+const LIVE_WINDOW_MS = 150 * 60 * 1000;
+const PRE_WINDOW_MS = 10 * 60 * 1000; // considera "ao vivo" 10min antes do horário oficial
+
+const matchesData = require("../data/matches.json");
+
+function isLiveWindowNow() {
+  const now = Date.now();
+  return matchesData.matches.some((m) => {
+    const kickoffUTC = new Date(`${m.date}T${m.time}:00-03:00`).getTime();
+    return now >= kickoffUTC - PRE_WINDOW_MS && now <= kickoffUTC + LIVE_WINDOW_MS;
+  });
+}
+
 async function apiGet(path, key) {
   const res = await fetch(`${BASE_URL}${path}`, {
     headers: { "x-apisports-key": key },
@@ -26,6 +44,25 @@ async function apiGet(path, key) {
   if (!res.ok) throw new Error(`API-Football error ${res.status} on ${path}`);
   const json = await res.json();
   return json.response;
+}
+
+const ISO_BY_NAME = {
+  "mexico":"mx","south africa":"za","south korea":"kr","korea republic":"kr","czech republic":"cz","czechia":"cz",
+  "canada":"ca","qatar":"qa","switzerland":"ch","bosnia and herzegovina":"ba","bosnia & herzegovina":"ba",
+  "brazil":"br","morocco":"ma","haiti":"ht","scotland":"gb-sct",
+  "usa":"us","united states":"us","paraguay":"py","australia":"au","turkey":"tr","türkiye":"tr",
+  "germany":"de","curacao":"cw","curaçao":"cw","ivory coast":"ci","côte d'ivoire":"ci","cote d'ivoire":"ci","ecuador":"ec",
+  "netherlands":"nl","japan":"jp","tunisia":"tn","sweden":"se",
+  "belgium":"be","egypt":"eg","iran":"ir","new zealand":"nz",
+  "spain":"es","cape verde":"cv","saudi arabia":"sa","uruguay":"uy",
+  "france":"fr","senegal":"sn","norway":"no","iraq":"iq",
+  "argentina":"ar","algeria":"dz","austria":"at","jordan":"jo",
+  "portugal":"pt","uzbekistan":"uz","colombia":"co","dr congo":"cd","congo dr":"cd",
+  "england":"gb-eng","croatia":"hr","ghana":"gh","panama":"pa",
+};
+
+function isoFor(name) {
+  return ISO_BY_NAME[(name || "").toLowerCase().trim()] || "";
 }
 
 function mapStandings(raw) {
@@ -38,7 +75,7 @@ function mapStandings(raw) {
     const letter = groupName.trim().slice(-1).toUpperCase();
     out[letter] = group.map((t) => ({
       team: t.team?.name,
-      flag: "",
+      flagCode: isoFor(t.team?.name),
       p: t.all?.played ?? "-",
       v: t.all?.win ?? "-",
       e: t.all?.draw ?? "-",
@@ -63,7 +100,13 @@ function mapTopscorers(raw) {
 }
 
 module.exports = async (req, res) => {
-  res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=86400");
+  const live = isLiveWindowNow();
+  // Fora de jogo: cache de 30 min. Durante janela de jogo: cache de 5 min
+  // (mantém o consumo dentro do limite gratuito de 100 req/dia da API-Football).
+  const cache = live
+    ? "s-maxage=300, stale-while-revalidate=600"
+    : "s-maxage=1800, stale-while-revalidate=3600";
+  res.setHeader("Cache-Control", cache);
   res.setHeader("Content-Type", "application/json; charset=utf-8");
 
   const key = process.env.API_FOOTBALL_KEY;
@@ -73,7 +116,7 @@ module.exports = async (req, res) => {
   }
 
   const type = (req.query?.type || "all").toString();
-  const out = { configured: true };
+  const out = { configured: true, liveWindow: live };
 
   try {
     if (type === "all" || type === "fixtures") {
