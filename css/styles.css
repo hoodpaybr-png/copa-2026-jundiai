@@ -1,0 +1,294 @@
+/* ===================================================================
+   COPA 2026 — Jundiaí/SP
+   Design tokens
+   - Petrol     #0E3A39  (primary / header / dark sections)
+   - Coral      #FF5D45  (accent, live, CTAs)
+   - Cream      #FBF6EC  (page background)
+   - Pitch      #2E7D5B  (group / stage tags)
+   - Gold       #E8B339  (Brasil / destaque)
+   - Ink        #15201F  (text)
+   Type: Anton (display) / Inter (body) / Space Mono (data, placares, horas)
+   Signature: cartões em formato de "ticket de estádio" com recortes
+   circulares e divisória pontilhada.
+=================================================================== */
+
+:root{
+  --petrol:#0E3A39;
+  --petrol-light:#16524F;
+  --coral:#FF5D45;
+  --cream:#FBF6EC;
+  --pitch:#2E7D5B;
+  --gold:#E8B339;
+  --ink:#15201F;
+  --paper:#FFFFFF;
+  --line:#E4DCC9;
+  --radius:18px;
+  --notch:22px;
+  --shadow: 0 6px 20px rgba(14,58,57,.08);
+  font-size:16px;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+.display{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase;}
+.mono{font-family:'Space Mono',monospace;}
+
+/* ---------- Skip link / focus ---------- */
+a:focus-visible, button:focus-visible, .tab:focus-visible{
+  outline:3px solid var(--coral);
+  outline-offset:2px;
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:var(--petrol);
+  color:var(--cream);
+  padding:14px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.brand{display:flex; align-items:baseline; gap:10px;}
+.brand .display{font-size:1.6rem; line-height:1;}
+.brand .display .accent{color:var(--gold);}
+.brand .tag{
+  font-family:'Space Mono',monospace; font-size:.7rem;
+  background:var(--coral); color:var(--petrol);
+  padding:3px 8px; border-radius:999px; letter-spacing:.05em;
+  text-transform:uppercase; white-space:nowrap;
+}
+.header-clock{
+  font-family:'Space Mono',monospace; font-size:.78rem; color:var(--cream);
+  opacity:.8; text-align:right;
+}
+.header-clock span{display:block;}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:28px 20px 16px;
+  text-align:center;
+}
+.hero-eyebrow{
+  font-family:'Space Mono',monospace; font-size:.75rem; letter-spacing:.18em;
+  color:var(--pitch); text-transform:uppercase; margin:0 0 6px;
+}
+.hero h1{
+  font-size:clamp(1.8rem,6vw,2.6rem); margin:0 0 4px; color:var(--petrol);
+}
+.hero p.sub{margin:0 0 18px; color:#5b6660; font-size:.95rem;}
+
+/* ---------- Tabs ---------- */
+.tabs{
+  display:flex; gap:8px; overflow-x:auto; padding:0 20px 14px;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  flex:0 0 auto; font-family:'Space Mono',monospace; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.06em;
+  border:1.5px solid var(--petrol); background:transparent; color:var(--petrol);
+  padding:8px 16px; border-radius:999px; cursor:pointer;
+  transition:all .15s ease;
+}
+.tab[aria-selected="true"]{background:var(--petrol); color:var(--cream);}
+.tab:hover{border-color:var(--coral);}
+
+main{max-width:980px; margin:0 auto; padding:0 16px 60px;}
+.panel{display:none;}
+.panel.active{display:block; animation:fade .25s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+.section-title{
+  display:flex; align-items:baseline; gap:10px; margin:22px 0 14px;
+}
+.section-title h2{font-size:1.3rem; margin:0; color:var(--petrol);}
+.section-title .count{
+  font-family:'Space Mono',monospace; font-size:.75rem; color:var(--pitch);
+  background:rgba(46,125,91,.12); padding:2px 8px; border-radius:999px;
+}
+
+/* ---------- Filters ---------- */
+.filters{
+  display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;
+}
+.filters select, .filters input{
+  font-family:'Inter',sans-serif; font-size:.85rem;
+  border:1.5px solid var(--line); border-radius:10px;
+  padding:8px 12px; background:var(--paper); color:var(--ink);
+}
+.filters select:focus, .filters input:focus{border-color:var(--coral); outline:none;}
+
+/* ===================================================================
+   TICKET CARD — signature component
+=================================================================== */
+.ticket{
+  position:relative;
+  background:var(--paper);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.ticket.brasil{box-shadow:0 6px 22px rgba(232,179,57,.35); border-color:var(--gold);}
+.ticket-top{
+  padding:16px 20px 14px;
+}
+.ticket-meta-row{
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px;
+}
+.stage-tag{
+  font-family:'Space Mono',monospace; font-size:.7rem; text-transform:uppercase;
+  letter-spacing:.08em; background:var(--pitch); color:#fff;
+  padding:3px 10px; border-radius:999px;
+}
+.stage-tag.knockout{background:var(--coral);}
+.game-num{font-family:'Space Mono',monospace; font-size:.7rem; color:#9aa39c;}
+
+.matchup{
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  text-align:center; margin:8px 0 12px;
+}
+.team{display:flex; flex-direction:column; align-items:center; gap:6px; flex:1; min-width:0;}
+.team .flag{font-size:2.1rem; line-height:1;}
+.team .name{font-size:.95rem; font-weight:700; color:var(--ink); word-break:break-word;}
+.vs{
+  font-family:'Anton',sans-serif; font-size:1.1rem; color:var(--line);
+  flex:0 0 auto;
+}
+
+.ticket-info{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:18px;
+  font-size:.82rem; color:#56625c;
+}
+.ticket-info .item{display:flex; align-items:center; gap:6px;}
+.ticket-info .item .ico{font-size:1rem;}
+.ticket-info .time{
+  font-family:'Space Mono',monospace; font-weight:700; color:var(--petrol); font-size:.95rem;
+}
+
+/* perforated divider with notches */
+.ticket-divider{
+  position:relative; height:0;
+  border-top:2px dashed var(--line);
+  margin:0 22px;
+}
+.ticket-divider::before, .ticket-divider::after{
+  content:""; position:absolute; top:50%; transform:translateY(-50%);
+  width:var(--notch); height:var(--notch); background:var(--cream);
+  border-radius:50%;
+}
+.ticket-divider::before{left:calc(-22px - var(--notch)/2);}
+.ticket-divider::after{right:calc(-22px - var(--notch)/2);}
+
+.ticket-bottom{
+  padding:12px 20px 16px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+}
+.broadcast-label{
+  font-family:'Space Mono',monospace; font-size:.68rem; text-transform:uppercase;
+  letter-spacing:.08em; color:#9aa39c; margin-right:4px;
+}
+.chip{
+  font-size:.75rem; background:var(--cream); border:1px solid var(--line);
+  color:var(--petrol); padding:3px 9px; border-radius:999px;
+}
+.chip.live-tv{border-color:var(--coral); color:var(--coral); font-weight:700;}
+
+.live-badge{
+  font-family:'Space Mono',monospace; font-size:.7rem; font-weight:700;
+  color:#fff; background:var(--coral); padding:3px 10px; border-radius:999px;
+  text-transform:uppercase; letter-spacing:.06em;
+  display:inline-flex; align-items:center; gap:5px;
+}
+.live-badge .dot{width:7px; height:7px; border-radius:50%; background:#fff; animation:pulse 1.2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.score{
+  font-family:'Space Mono',monospace; font-size:1.6rem; font-weight:700; color:var(--petrol);
+}
+
+/* ---------- Hero ticket (próximo jogo) ---------- */
+.hero-ticket{max-width:480px; margin:0 auto 8px;}
+.countdown{
+  display:flex; justify-content:center; gap:14px; margin:14px 0 0;
+}
+.countdown .cd{text-align:center;}
+.countdown .cd .num{
+  font-family:'Space Mono',monospace; font-weight:700; font-size:1.4rem;
+  background:var(--petrol); color:var(--cream); border-radius:8px;
+  padding:6px 10px; min-width:46px; display:inline-block;
+}
+.countdown .cd .lbl{display:block; font-size:.65rem; color:#9aa39c; margin-top:4px; text-transform:uppercase; letter-spacing:.08em;}
+
+/* ---------- Grupos ---------- */
+.group-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;}
+.group-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px 16px; box-shadow:var(--shadow);
+}
+.group-card h3{
+  margin:0 0 10px; font-family:'Anton',sans-serif; font-size:1.1rem; color:var(--petrol);
+  display:flex; align-items:center; gap:8px;
+}
+.group-card h3 .letter{
+  background:var(--pitch); color:#fff; border-radius:8px; width:30px; height:30px;
+  display:flex; align-items:center; justify-content:center; font-size:.95rem;
+}
+.standings-table{width:100%; border-collapse:collapse; font-size:.82rem;}
+.standings-table th, .standings-table td{
+  padding:5px 4px; text-align:center; border-bottom:1px solid var(--line);
+}
+.standings-table th{font-family:'Space Mono',monospace; font-size:.65rem; color:#9aa39c; text-transform:uppercase;}
+.standings-table td.team-cell{text-align:left; font-weight:600;}
+.standings-table tr:nth-child(-n+2) td{background:rgba(46,125,91,.07);}
+
+/* ---------- Onde Assistir ---------- */
+.channel-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;}
+.channel-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:16px; box-shadow:var(--shadow);
+}
+.channel-card .ch-name{font-family:'Anton',sans-serif; font-size:1.05rem; color:var(--petrol); margin:0 0 6px;}
+.channel-card p{margin:0; font-size:.85rem; color:#56625c;}
+
+/* ---------- Artilheiros ---------- */
+.topscorers-table{width:100%; border-collapse:collapse; margin-top:6px;}
+.topscorers-table th, .topscorers-table td{
+  padding:9px 8px; text-align:left; border-bottom:1px solid var(--line); font-size:.88rem;
+}
+.topscorers-table th{font-family:'Space Mono',monospace; font-size:.7rem; text-transform:uppercase; color:#9aa39c;}
+.topscorers-table td.num-col, .topscorers-table th.num-col{text-align:center; font-family:'Space Mono',monospace;}
+
+.empty-state{
+  border:1px dashed var(--line); border-radius:var(--radius); padding:28px 20px;
+  text-align:center; color:#6b766f; background:rgba(255,255,255,.5);
+}
+.empty-state .display{font-size:1.1rem; color:var(--petrol); margin-bottom:6px;}
+.empty-state p{font-size:.88rem; margin:4px 0;}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  text-align:center; padding:30px 20px 50px; color:#8b958e; font-size:.78rem;
+}
+.site-footer a{color:var(--pitch); text-decoration:underline;}
+
+/* ---------- Responsive ---------- */
+@media (min-width:640px){
+  .matchup{gap:28px;}
+  .team .flag{font-size:2.6rem;}
+}
+@media (prefers-reduced-motion: reduce){
+  .live-badge .dot{animation:none;}
+  .panel.active{animation:none;}
+}

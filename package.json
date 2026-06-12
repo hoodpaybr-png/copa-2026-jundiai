@@ -1,0 +1,9 @@
+{
+  "name": "copa-2026-jundiai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tabela, grupos, classificacao, artilheiros e onde assistir a Copa do Mundo 2026 - Jundiai/SP",
+  "engines": {
+    "node": ">=18"
+  }
+}
