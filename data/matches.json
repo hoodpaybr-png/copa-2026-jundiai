@@ -15,7 +15,9 @@
       "stadium": "Estádio da Cidade do México",
       "stadium_real": "Estádio Banorte (Azteca)",
       "city": "Cidade do México, México",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "mx",
+      "flagCode2": "za"
     },
     {
       "num": 2,
@@ -31,7 +33,9 @@
       "stadium": "Estádio de Guadalajara",
       "stadium_real": "Estádio Akron",
       "city": "Zapopan/Guadalajara, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "kr",
+      "flagCode2": "cz"
     },
     {
       "num": 3,
@@ -47,7 +51,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ca",
+      "flagCode2": "ba"
     },
     {
       "num": 4,
@@ -63,7 +69,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "us",
+      "flagCode2": "py"
     },
     {
       "num": 5,
@@ -79,7 +87,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "qa",
+      "flagCode2": "ch"
     },
     {
       "num": 6,
@@ -95,7 +105,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "br",
+      "flagCode2": "ma"
     },
     {
       "num": 7,
@@ -111,7 +123,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ht",
+      "flagCode2": "gb-sct"
     },
     {
       "num": 8,
@@ -127,7 +141,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay",
+      "flagCode1": "au",
+      "flagCode2": "tr"
     },
     {
       "num": 9,
@@ -143,7 +159,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "de",
+      "flagCode2": "cw"
     },
     {
       "num": 10,
@@ -159,7 +177,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "nl",
+      "flagCode2": "jp"
     },
     {
       "num": 11,
@@ -175,7 +195,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "ci",
+      "flagCode2": "ec"
     },
     {
       "num": 12,
@@ -191,7 +213,9 @@
       "stadium": "Estádio de Monterrey",
       "stadium_real": "Estádio BBVA",
       "city": "Guadalupe, México",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "se",
+      "flagCode2": "tn"
     },
     {
       "num": 13,
@@ -207,7 +231,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "es",
+      "flagCode2": "cv"
     },
     {
       "num": 14,
@@ -223,7 +249,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay",
+      "flagCode1": "be",
+      "flagCode2": "eg"
     },
     {
       "num": 15,
@@ -239,7 +267,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "sa",
+      "flagCode2": "uy"
     },
     {
       "num": 16,
@@ -255,7 +285,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ir",
+      "flagCode2": "nz"
     },
     {
       "num": 17,
@@ -271,7 +303,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "fr",
+      "flagCode2": "sn"
     },
     {
       "num": 18,
@@ -287,7 +321,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "iq",
+      "flagCode2": "no"
     },
     {
       "num": 19,
@@ -303,7 +339,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ar",
+      "flagCode2": "dz"
     },
     {
       "num": 20,
@@ -319,7 +357,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "at",
+      "flagCode2": "jo"
     },
     {
       "num": 21,
@@ -335,7 +375,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "pt",
+      "flagCode2": "cd"
     },
     {
       "num": 22,
@@ -351,7 +393,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "gb-eng",
+      "flagCode2": "hr"
     },
     {
       "num": 23,
@@ -367,7 +411,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "gh",
+      "flagCode2": "pa"
     },
     {
       "num": 24,
@@ -383,7 +429,9 @@
       "stadium": "Estádio da Cidade do México",
       "stadium_real": "Estádio Banorte (Azteca)",
       "city": "Cidade do México, México",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "uz",
+      "flagCode2": "co"
     },
     {
       "num": 25,
@@ -399,7 +447,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "cz",
+      "flagCode2": "za"
     },
     {
       "num": 26,
@@ -415,7 +465,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "ch",
+      "flagCode2": "ba"
     },
     {
       "num": 27,
@@ -431,7 +483,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ca",
+      "flagCode2": "qa"
     },
     {
       "num": 28,
@@ -447,7 +501,9 @@
       "stadium": "Estádio de Guadalajara",
       "stadium_real": "Estádio Akron",
       "city": "Zapopan/Guadalajara, México",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay",
+      "flagCode1": "mx",
+      "flagCode2": "kr"
     },
     {
       "num": 29,
@@ -463,7 +519,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "us",
+      "flagCode2": "au"
     },
     {
       "num": 30,
@@ -479,7 +537,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "gb-sct",
+      "flagCode2": "ma"
     },
     {
       "num": 31,
@@ -495,7 +555,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "A confirmar (CazéTV exibe todos os 104 jogos)"
+      "broadcast": "A confirmar (CazéTV exibe todos os 104 jogos)",
+      "flagCode1": "br",
+      "flagCode2": "ht"
     },
     {
       "num": 32,
@@ -511,7 +573,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "tr",
+      "flagCode2": "py"
     },
     {
       "num": 33,
@@ -527,7 +591,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "nl",
+      "flagCode2": "se"
     },
     {
       "num": 34,
@@ -543,7 +609,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "de",
+      "flagCode2": "ci"
     },
     {
       "num": 35,
@@ -559,7 +627,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ec",
+      "flagCode2": "cw"
     },
     {
       "num": 36,
@@ -575,7 +645,9 @@
       "stadium": "Estádio de Monterrey",
       "stadium_real": "Estádio BBVA",
       "city": "Guadalupe, México",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay",
+      "flagCode1": "tn",
+      "flagCode2": "jp"
     },
     {
       "num": 37,
@@ -591,7 +663,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "es",
+      "flagCode2": "sa"
     },
     {
       "num": 38,
@@ -607,7 +681,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "be",
+      "flagCode2": "ir"
     },
     {
       "num": 39,
@@ -623,7 +699,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "uy",
+      "flagCode2": "cv"
     },
     {
       "num": 40,
@@ -639,7 +717,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "nz",
+      "flagCode2": "eg"
     },
     {
       "num": 41,
@@ -655,7 +735,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "ar",
+      "flagCode2": "at"
     },
     {
       "num": 42,
@@ -671,7 +753,9 @@
       "stadium": "A Definir",
       "stadium_real": "A definir",
       "city": "A definir",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "dz",
+      "flagCode2": "jo"
     },
     {
       "num": 43,
@@ -687,7 +771,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "fr",
+      "flagCode2": "iq"
     },
     {
       "num": 44,
@@ -703,7 +789,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "sn",
+      "flagCode2": "no"
     },
     {
       "num": 45,
@@ -719,7 +807,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "pt",
+      "flagCode2": "uz"
     },
     {
       "num": 46,
@@ -735,7 +825,9 @@
       "stadium": "Estádio de Guadalajara",
       "stadium_real": "Estádio Akron",
       "city": "Zapopan/Guadalajara, México",
-      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo"
+      "broadcast": "CazéTV (YouTube), SporTV, Globoplay, TV Globo",
+      "flagCode1": "cd",
+      "flagCode2": "co"
     },
     {
       "num": 47,
@@ -751,7 +843,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "gb-eng",
+      "flagCode2": "gh"
     },
     {
       "num": 48,
@@ -767,7 +861,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "hr",
+      "flagCode2": "pa"
     },
     {
       "num": 49,
@@ -783,7 +879,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ch",
+      "flagCode2": "ca"
     },
     {
       "num": 50,
@@ -799,7 +897,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ba",
+      "flagCode2": "qa"
     },
     {
       "num": 51,
@@ -815,7 +915,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)"
+      "broadcast": "CazéTV (YouTube), TV Globo, SporTV, ge TV (Globoplay), Globoplay, SBT, N Sports (YouTube)",
+      "flagCode1": "gb-sct",
+      "flagCode2": "br"
     },
     {
       "num": 52,
@@ -831,7 +933,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ma",
+      "flagCode2": "ht"
     },
     {
       "num": 53,
@@ -847,7 +951,9 @@
       "stadium": "Estádio da Cidade do México",
       "stadium_real": "Estádio Banorte (Azteca)",
       "city": "Cidade do México, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "cz",
+      "flagCode2": "mx"
     },
     {
       "num": 54,
@@ -863,7 +969,9 @@
       "stadium": "Estádio de Monterrey",
       "stadium_real": "Estádio BBVA",
       "city": "Guadalupe, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "za",
+      "flagCode2": "kr"
     },
     {
       "num": 55,
@@ -879,7 +987,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "cw",
+      "flagCode2": "ci"
     },
     {
       "num": 56,
@@ -895,7 +1005,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "ec",
+      "flagCode2": "de"
     },
     {
       "num": 57,
@@ -911,7 +1023,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "jp",
+      "flagCode2": "se"
     },
     {
       "num": 58,
@@ -927,7 +1041,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "tn",
+      "flagCode2": "nl"
     },
     {
       "num": 59,
@@ -943,7 +1059,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "tr",
+      "flagCode2": "us"
     },
     {
       "num": 60,
@@ -959,7 +1077,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "py",
+      "flagCode2": "au"
     },
     {
       "num": 61,
@@ -975,7 +1095,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "no",
+      "flagCode2": "fr"
     },
     {
       "num": 62,
@@ -991,7 +1113,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "sn",
+      "flagCode2": "iq"
     },
     {
       "num": 63,
@@ -1007,7 +1131,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "cv",
+      "flagCode2": "sa"
     },
     {
       "num": 64,
@@ -1023,7 +1149,9 @@
       "stadium": "Estádio de Guadalajara",
       "stadium_real": "Estádio Akron",
       "city": "Zapopan/Guadalajara, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "uy",
+      "flagCode2": "es"
     },
     {
       "num": 65,
@@ -1039,7 +1167,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "eg",
+      "flagCode2": "ir"
     },
     {
       "num": 66,
@@ -1055,7 +1185,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "nz",
+      "flagCode2": "be"
     },
     {
       "num": 67,
@@ -1071,7 +1203,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "pa",
+      "flagCode2": "gb-eng"
     },
     {
       "num": 68,
@@ -1087,7 +1221,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "hr",
+      "flagCode2": "gh"
     },
     {
       "num": 69,
@@ -1103,7 +1239,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "co",
+      "flagCode2": "pt"
     },
     {
       "num": 70,
@@ -1119,7 +1257,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "cd",
+      "flagCode2": "uz"
     },
     {
       "num": 71,
@@ -1135,7 +1275,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "dz",
+      "flagCode2": "at"
     },
     {
       "num": 72,
@@ -1151,7 +1293,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "jo",
+      "flagCode2": "ar"
     },
     {
       "num": 73,
@@ -1167,7 +1311,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 74,
@@ -1183,7 +1329,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 75,
@@ -1199,7 +1347,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 76,
@@ -1215,7 +1365,9 @@
       "stadium": "Estádio de Monterrey",
       "stadium_real": "Estádio BBVA",
       "city": "Guadalupe, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 77,
@@ -1231,7 +1383,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 78,
@@ -1247,7 +1401,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 79,
@@ -1263,7 +1419,9 @@
       "stadium": "Estádio da Cidade do México",
       "stadium_real": "Estádio Banorte (Azteca)",
       "city": "Cidade do México, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 80,
@@ -1279,7 +1437,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 81,
@@ -1295,7 +1455,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 82,
@@ -1311,7 +1473,9 @@
       "stadium": "Estádio da Baía de São Francisco",
       "stadium_real": "Levi's Stadium",
       "city": "Santa Clara, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 83,
@@ -1327,7 +1491,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 84,
@@ -1343,7 +1509,9 @@
       "stadium": "Estádio de Toronto",
       "stadium_real": "BMO Field",
       "city": "Toronto, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 85,
@@ -1359,7 +1527,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 86,
@@ -1375,7 +1545,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 87,
@@ -1391,7 +1563,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 88,
@@ -1407,7 +1581,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 89,
@@ -1423,7 +1599,9 @@
       "stadium": "Estádio de Houston",
       "stadium_real": "NRG Stadium",
       "city": "Houston, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 90,
@@ -1439,7 +1617,9 @@
       "stadium": "Estádio de Filadélfia",
       "stadium_real": "Lincoln Financial Field",
       "city": "Philadelphia, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 91,
@@ -1455,7 +1635,9 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 92,
@@ -1471,7 +1653,9 @@
       "stadium": "Estádio da Cidade do México",
       "stadium_real": "Estádio Banorte (Azteca)",
       "city": "Cidade do México, México",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 93,
@@ -1487,7 +1671,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 94,
@@ -1503,7 +1689,9 @@
       "stadium": "Estádio de Seattle",
       "stadium_real": "Lumen Field",
       "city": "Seattle, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 95,
@@ -1519,7 +1707,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 96,
@@ -1535,7 +1725,9 @@
       "stadium": "BC Place de Vancouver",
       "stadium_real": "BC Place",
       "city": "Vancouver, Canadá",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 97,
@@ -1551,7 +1743,9 @@
       "stadium": "Estádio de Boston",
       "stadium_real": "Gillette Stadium",
       "city": "Foxborough, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 98,
@@ -1567,7 +1761,9 @@
       "stadium": "Estádio de Los Angeles",
       "stadium_real": "SoFi Stadium",
       "city": "Inglewood, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 99,
@@ -1583,7 +1779,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 100,
@@ -1599,7 +1797,9 @@
       "stadium": "Estádio de Kansas City",
       "stadium_real": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 101,
@@ -1615,7 +1815,9 @@
       "stadium": "Estádio de Dallas",
       "stadium_real": "AT&T Stadium",
       "city": "Arlington, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 102,
@@ -1631,7 +1833,9 @@
       "stadium": "Estádio de Atlanta",
       "stadium_real": "Mercedes-Benz Stadium",
       "city": "Atlanta, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 103,
@@ -1647,7 +1851,9 @@
       "stadium": "Estádio de Miami",
       "stadium_real": "Hard Rock Stadium",
       "city": "Miami Gardens, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     },
     {
       "num": 104,
@@ -1663,224 +1869,274 @@
       "stadium": "Estádio de Nova York/Nova Jersey",
       "stadium_real": "MetLife Stadium",
       "city": "East Rutherford, EUA",
-      "broadcast": "CazéTV (YouTube)"
+      "broadcast": "CazéTV (YouTube)",
+      "flagCode1": "",
+      "flagCode2": ""
     }
   ],
   "groups": {
     "A": [
       {
         "team": "México",
-        "flag": "🇲🇽"
+        "flag": "🇲🇽",
+        "flagCode": "mx"
       },
       {
         "team": "África do Sul",
-        "flag": "🇿🇦"
+        "flag": "🇿🇦",
+        "flagCode": "za"
       },
       {
         "team": "Coreia do Sul",
-        "flag": "🇰🇷"
+        "flag": "🇰🇷",
+        "flagCode": "kr"
       },
       {
         "team": "República Tcheca",
-        "flag": "🇨🇿"
+        "flag": "🇨🇿",
+        "flagCode": "cz"
       }
     ],
     "B": [
       {
         "team": "Canadá",
-        "flag": "🇨🇦"
+        "flag": "🇨🇦",
+        "flagCode": "ca"
       },
       {
         "team": "Catar",
-        "flag": "🇶🇦"
+        "flag": "🇶🇦",
+        "flagCode": "qa"
       },
       {
         "team": "Suíça",
-        "flag": "🇨🇭"
+        "flag": "🇨🇭",
+        "flagCode": "ch"
       },
       {
         "team": "Bósnia e Herzegovina",
-        "flag": "🇧🇦"
+        "flag": "🇧🇦",
+        "flagCode": "ba"
       }
     ],
     "C": [
       {
         "team": "Brasil",
-        "flag": "🇧🇷"
+        "flag": "🇧🇷",
+        "flagCode": "br"
       },
       {
         "team": "Marrocos",
-        "flag": "🇲🇦"
+        "flag": "🇲🇦",
+        "flagCode": "ma"
       },
       {
         "team": "Haiti",
-        "flag": "🇭🇹"
+        "flag": "🇭🇹",
+        "flagCode": "ht"
       },
       {
         "team": "Escócia",
-        "flag": "🏴"
+        "flag": "🏴",
+        "flagCode": "gb-sct"
       }
     ],
     "D": [
       {
         "team": "Estados Unidos",
-        "flag": "🇺🇸"
+        "flag": "🇺🇸",
+        "flagCode": "us"
       },
       {
         "team": "Paraguai",
-        "flag": "🇵🇾"
+        "flag": "🇵🇾",
+        "flagCode": "py"
       },
       {
         "team": "Austrália",
-        "flag": "🇦🇺"
+        "flag": "🇦🇺",
+        "flagCode": "au"
       },
       {
         "team": "Turquia",
-        "flag": "🇹🇷"
+        "flag": "🇹🇷",
+        "flagCode": "tr"
       }
     ],
     "E": [
       {
         "team": "Alemanha",
-        "flag": "🇩🇪"
+        "flag": "🇩🇪",
+        "flagCode": "de"
       },
       {
         "team": "Curaçao",
-        "flag": "🇨🇼"
+        "flag": "🇨🇼",
+        "flagCode": "cw"
       },
       {
         "team": "Costa do Marfim",
-        "flag": "🇨🇮"
+        "flag": "🇨🇮",
+        "flagCode": "ci"
       },
       {
         "team": "Equador",
-        "flag": "🇪🇨"
+        "flag": "🇪🇨",
+        "flagCode": "ec"
       }
     ],
     "F": [
       {
         "team": "Holanda",
-        "flag": "🇳🇱"
+        "flag": "🇳🇱",
+        "flagCode": "nl"
       },
       {
         "team": "Japão",
-        "flag": "🇯🇵"
+        "flag": "🇯🇵",
+        "flagCode": "jp"
       },
       {
         "team": "Tunísia",
-        "flag": "🇹🇳"
+        "flag": "🇹🇳",
+        "flagCode": "tn"
       },
       {
         "team": "Suécia",
-        "flag": "🇸🇪"
+        "flag": "🇸🇪",
+        "flagCode": "se"
       }
     ],
     "G": [
       {
         "team": "Bélgica",
-        "flag": "🇧🇪"
+        "flag": "🇧🇪",
+        "flagCode": "be"
       },
       {
         "team": "Egito",
-        "flag": "🇪🇬"
+        "flag": "🇪🇬",
+        "flagCode": "eg"
       },
       {
         "team": "Irã",
-        "flag": "🇮🇷"
+        "flag": "🇮🇷",
+        "flagCode": "ir"
       },
       {
         "team": "Nova Zelândia",
-        "flag": "🇳🇿"
+        "flag": "🇳🇿",
+        "flagCode": "nz"
       }
     ],
     "H": [
       {
         "team": "Espanha",
-        "flag": "🇪🇸"
+        "flag": "🇪🇸",
+        "flagCode": "es"
       },
       {
         "team": "Cabo Verde",
-        "flag": "🇨🇻"
+        "flag": "🇨🇻",
+        "flagCode": "cv"
       },
       {
         "team": "Arábia Saudita",
-        "flag": "🇸🇦"
+        "flag": "🇸🇦",
+        "flagCode": "sa"
       },
       {
         "team": "Uruguai",
-        "flag": "🇺🇾"
+        "flag": "🇺🇾",
+        "flagCode": "uy"
       }
     ],
     "I": [
       {
         "team": "França",
-        "flag": "🇫🇷"
+        "flag": "🇫🇷",
+        "flagCode": "fr"
       },
       {
         "team": "Senegal",
-        "flag": "🇸🇳"
+        "flag": "🇸🇳",
+        "flagCode": "sn"
       },
       {
         "team": "Noruega",
-        "flag": "🇳🇴"
+        "flag": "🇳🇴",
+        "flagCode": "no"
       },
       {
         "team": "Iraque",
-        "flag": "🇮🇶"
+        "flag": "🇮🇶",
+        "flagCode": "iq"
       }
     ],
     "J": [
       {
         "team": "Argentina",
-        "flag": "🇦🇷"
+        "flag": "🇦🇷",
+        "flagCode": "ar"
       },
       {
         "team": "Argélia",
-        "flag": "🇩🇿"
+        "flag": "🇩🇿",
+        "flagCode": "dz"
       },
       {
         "team": "Áustria",
-        "flag": "🇦🇹"
+        "flag": "🇦🇹",
+        "flagCode": "at"
       },
       {
         "team": "Jordânia",
-        "flag": "🇯🇴"
+        "flag": "🇯🇴",
+        "flagCode": "jo"
       }
     ],
     "K": [
       {
         "team": "Portugal",
-        "flag": "🇵🇹"
+        "flag": "🇵🇹",
+        "flagCode": "pt"
       },
       {
         "team": "Uzbequistão",
-        "flag": "🇺🇿"
+        "flag": "🇺🇿",
+        "flagCode": "uz"
       },
       {
         "team": "Colômbia",
-        "flag": "🇨🇴"
+        "flag": "🇨🇴",
+        "flagCode": "co"
       },
       {
         "team": "RD Congo",
-        "flag": "🇨🇩"
+        "flag": "🇨🇩",
+        "flagCode": "cd"
       }
     ],
     "L": [
       {
         "team": "Inglaterra",
-        "flag": "🏴"
+        "flag": "🏴",
+        "flagCode": "gb-eng"
       },
       {
         "team": "Croácia",
-        "flag": "🇭🇷"
+        "flag": "🇭🇷",
+        "flagCode": "hr"
       },
       {
         "team": "Gana",
-        "flag": "🇬🇭"
+        "flag": "🇬🇭",
+        "flagCode": "gh"
       },
       {
         "team": "Panamá",
-        "flag": "🇵🇦"
+        "flag": "🇵🇦",
+        "flagCode": "pa"
       }
     ]
   }
