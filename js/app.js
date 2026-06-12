@@ -7,18 +7,18 @@
 =================================================================== */
 
 const TEAM_EN = {
-  "México":"Mexico","África do Sul":"South Africa","Coreia do Sul":"South Korea","República Tcheca":"Czech Republic",
-  "Canadá":"Canada","Catar":"Qatar","Suíça":"Switzerland","Bósnia e Herzegovina":"Bosnia and Herzegovina",
+  "México":"Mexico","África do Sul":"South Africa","Coreia do Sul":"South Korea",
+  "Canadá":"Canada","Catar":"Qatar","Suíça":"Switzerland","Bósnia e Herzegovina":"Bosnia-Herzegovina",
   "Brasil":"Brazil","Marrocos":"Morocco","Haiti":"Haiti","Escócia":"Scotland",
-  "Estados Unidos":"USA","Paraguai":"Paraguay","Austrália":"Australia","Turquia":"Turkey",
+  "Estados Unidos":"United States","Paraguai":"Paraguay","Austrália":"Australia","Turquia":"Turkey",
   "Alemanha":"Germany","Curaçao":"Curacao","Costa do Marfim":"Ivory Coast","Equador":"Ecuador",
   "Holanda":"Netherlands","Japão":"Japan","Tunísia":"Tunisia","Suécia":"Sweden",
   "Bélgica":"Belgium","Egito":"Egypt","Irã":"Iran","Nova Zelândia":"New Zealand",
   "Espanha":"Spain","Cabo Verde":"Cape Verde","Arábia Saudita":"Saudi Arabia","Uruguai":"Uruguay",
   "França":"France","Senegal":"Senegal","Noruega":"Norway","Iraque":"Iraq",
   "Argentina":"Argentina","Argélia":"Algeria","Áustria":"Austria","Jordânia":"Jordan",
-  "Portugal":"Portugal","Uzbequistão":"Uzbekistan","Colômbia":"Colombia","RD Congo":"DR Congo",
-  "Inglaterra":"England","Croácia":"Croatia","Gana":"Ghana","Panamá":"Panama",
+  "Portugal":"Portugal","Uzbequistão":"Uzbekistan","Colômbia":"Colombia","RD Congo":"Congo DR",
+  "Inglaterra":"England","Croácia":"Croatia","Gana":"Ghana","Panamá":"Panama","República Tcheca":"Czechia",
 };
 
 const CHANNELS = [
