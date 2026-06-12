@@ -50,17 +50,17 @@ async function apiGet(path, token) {
 
 const ISO_BY_NAME = {
   "mexico":"mx","south africa":"za","south korea":"kr","korea republic":"kr","czech republic":"cz","czechia":"cz",
-  "canada":"ca","qatar":"qa","switzerland":"ch","bosnia and herzegovina":"ba","bosnia & herzegovina":"ba",
+  "canada":"ca","qatar":"qa","switzerland":"ch","bosnia and herzegovina":"ba","bosnia & herzegovina":"ba","bosnia-herzegovina":"ba",
   "brazil":"br","morocco":"ma","haiti":"ht","scotland":"gb-sct",
   "usa":"us","united states":"us","united states of america":"us","paraguay":"py","australia":"au","turkey":"tr","türkiye":"tr",
   "germany":"de","curacao":"cw","curaçao":"cw","ivory coast":"ci","côte d'ivoire":"ci","cote d'ivoire":"ci","ecuador":"ec",
   "netherlands":"nl","japan":"jp","tunisia":"tn","sweden":"se",
   "belgium":"be","egypt":"eg","iran":"ir","ir iran":"ir","new zealand":"nz",
-  "spain":"es","cape verde":"cv","cabo verde":"cv","saudi arabia":"sa","uruguay":"uy",
+  "spain":"es","cape verde":"cv","cabo verde":"cv","cape verde islands":"cv","saudi arabia":"sa","uruguay":"uy",
   "france":"fr","senegal":"sn","norway":"no","iraq":"iq",
   "argentina":"ar","algeria":"dz","austria":"at","jordan":"jo",
   "portugal":"pt","uzbekistan":"uz","colombia":"co","dr congo":"cd","congo dr":"cd","democratic republic of the congo":"cd",
-  "england":"gb-eng","croatia":"hr","ghana":"gh","panama":"pa",
+  "england":"gb-eng","croatia":"hr","ghana":"gh","panama":"pa","czechia":"cz","czech republic":"cz",
 };
 
 function isoFor(name) {
