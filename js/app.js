@@ -93,9 +93,9 @@ function ticketHTML(m){
         ${statusHTML || `<span class="game-num">Jogo ${m.num}</span>`}
       </div>
       <div class="matchup">
-        <div class="team"><span class="flag">${m.flag1}</span><span class="name">${m.team1}</span></div>
+        <div class="team"><span class="fi fi-${m.flagCode1}" aria-hidden="true"></span><span class="name">${m.team1}</span></div>
         ${scoreHTML || `<div class="vs">x</div>`}
-        <div class="team"><span class="flag">${m.flag2}</span><span class="name">${m.team2}</span></div>
+        <div class="team"><span class="fi fi-${m.flagCode2}" aria-hidden="true"></span><span class="name">${m.team2}</span></div>
       </div>
       <div class="ticket-info">
         <span class="item"><span class="ico">📅</span> ${fmtDate(m)}</span>
@@ -131,8 +131,6 @@ function renderHomeLists(){
 function renderHeroTicket(hoje, proximos){
   const el = document.getElementById('hero-ticket');
   const now = new Date();
-  // "próximo jogo" = primeiro jogo (hoje ou futuro) que ainda não terminou
-  // (considera ~2h de duração média por partida)
   const all = [...hoje, ...proximos].sort((a,b)=>matchDate(a)-matchDate(b));
   const next = all.find(m => (matchDate(m).getTime() + 2*60*60*1000) > now.getTime()) || all[0];
   if(!next){ el.innerHTML = ''; return; }
@@ -203,9 +201,9 @@ function renderGroups(){
   const grid = document.getElementById('group-grid');
   grid.innerHTML = Object.entries(DATA.groups).map(([letter, teams])=>{
     const standings = LIVE.standings ? LIVE.standings[letter] : null;
-    const rows = (standings || teams.map(t=>({team:t.team, flag:t.flag, p:'-', v:'-', e:'-', d:'-', gp:'-', gc:'-', sg:'-', pts:'-'})))
+    const rows = (standings || teams.map(t=>({team:t.team, flagCode:t.flagCode, p:'-', v:'-', e:'-', d:'-', gp:'-', gc:'-', sg:'-', pts:'-'})))
       .map(r=>`<tr>
-        <td class="team-cell">${r.flag||''} ${r.team}</td>
+        <td class="team-cell"><span class="fi fi-${r.flagCode||''}" aria-hidden="true"></span>${r.team}</td>
         <td>${r.p}</td><td>${r.v}</td><td>${r.e}</td><td>${r.d}</td>
         <td>${r.gp}</td><td>${r.gc}</td><td>${r.sg}</td><td><strong>${r.pts}</strong></td>
       </tr>`).join('');
@@ -294,7 +292,6 @@ async function loadLiveData(){
   } else if(LIVE.configured===true){
     status.textContent = `Dados em tempo real atualizados em ${new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})} (horário de Brasília).`;
   }
-  // re-render with whatever live data we have
   renderHomeLists();
   renderTabela();
   renderGroups();
